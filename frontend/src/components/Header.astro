@@ -1,0 +1,36 @@
+﻿---  
+/** Componente Header simple */  
+---  
+<nav class=\"bg-white shadow\">
+  <div class=\"container flex items-center justify-between\">
+    <a class=\"text-xl font-bold header-link\" href=\"/\">TiendasCoro</a>
+    <div class=\"space-x-4 flex items-center\">
+      <a class=\"header-link\" href=\"/\">Productos</a>
+      <a class=\"header-link\" href=\"/register\">Register</a>
+      <a class=\"header-link\" href=\"/login\">Login</a>
+      <a class=\"header-link\" href=\"/seller\">Seller</a>
+      <button id=\"logoutBtn\" class=\"hidden text-sm text-red-600\">Cerrar sesión</button>
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  (function () {
+    const logoutBtn = document.getElementById('logoutBtn');
+    function update() {
+      const token = localStorage.getItem('token');
+      if (token) {
+        logoutBtn.classList.remove('hidden');
+      } else {
+        logoutBtn.classList.add('hidden');
+      }
+    }
+    logoutBtn?.addEventListener('click', () => {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      update();
+      location.href = '/';
+    });
+    update();
+  })();
+</script>
