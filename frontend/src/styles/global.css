@@ -1,17 +1,1 @@
-﻿@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* estilos simples */
-body {
-  @apply bg-gray-50 text-gray-800;
-}
-.container {
-  @apply max-w-4xl mx-auto px-4 py-8;
-}
-.card {
-  @apply bg-white rounded shadow p-4;
-}
-.header-link {
-  @apply text-indigo-600 hover:text-indigo-800;
-}
+@import "tailwindcss";
